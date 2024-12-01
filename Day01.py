@@ -24,12 +24,26 @@ def calculate_distance(list1, list2):
     return distance
 
 
+def find_similarity_score(list1, list2):
+    similarity_score = 0
+    for value in list2:
+        similarity_score += value * list1.count(value)
+    return similarity_score
+
 def main(filename):
+    if filename.find("short") > 0:
+        version = "test input"
+    else:
+        version = "actual input"
+
     # pt 1
     list1, list2 = parse_input(filename)
     list1, list2 = sort_list(list1, list2)
     distance = calculate_distance(list1, list2)
-    print(distance)
+    print(f"distance {version}: {distance}")
+    # pt 2
+    similarity_score = find_similarity_score(list1, list2)
+    print(f"similarity score {version}: {similarity_score}")
 
 
 main("input/day01_short.txt")
