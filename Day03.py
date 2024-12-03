@@ -12,7 +12,7 @@ def parse_input(filename):
 
 def find_all_multiplication(parsed_input):
     multiplications_list = [(int(a), int(b)) for a, b in
-                            [x.strip("mul()").split(",") for x in findall("mul\(\d+,\d+\)", parsed_input)]]
+                            [x.strip("mul()").split(",") for x in findall(r"mul\(\d+,\d+\)", parsed_input)]]
     return multiplications_list
 
 
@@ -22,7 +22,7 @@ def calculate_multiplications(multiplications_list):
         sum_all += multiplication[0] * multiplication[1]
     return sum_all
 
-
+#redactie: ughie dit hadden natuurlijk ook gewoon .split()s kunenn zijn
 def find_exclusion_text(parsed_input):
     current_dont = parsed_input.find("don't()")
     exclusions = ""
