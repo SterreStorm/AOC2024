@@ -24,7 +24,7 @@ def check(check_array, comparisons_dict):
         if check_number in comparisons_dict:
             ahead_array = comparisons_dict[check_number]
             for number_ahead in ahead_array:
-                if check_array.count(number_ahead) > 0 and check_array.index(number_ahead) < check_number_location:
+                if number_ahead in check_array and check_array.index(number_ahead) < check_number_location:
                     return False, check_number_location
     return True, check_number_location
 
